@@ -102,6 +102,34 @@ echo 32 > /sys/class/graphics/fb0/bits_per_pixel
 exec /usr/bin/ply-image-real $@
 EOF
 chmod +x /usr/bin/ply-image
+
+# Hack to fix the proximity sensor on n950
+cat > /usr/sbin/enable_prox << EOF
+#!/bin/sh
+echo 1 > /sys/devices/platform/i2c_omap.2/i2c-2/2-0039/prox_enable
+EOF
+chmod +x /usr/sbin/enable_prox
+
+cat > /etc/systemd/system/proximity-fix.service << EOF
+[Unit]
+Description=Fix proximity sensor on N950
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/enable_prox
+TimeoutSec=0
+StandardOutput=tty
+RemainAfterExit=yes
+SysVStartPriority=99
+
+[Install]
+WantedBy=multi-user.target
+EOF
+ln -s /etc/systemd/system/proximity-fix.service /etc/systemd/system/multi-user.target.wants/
+
+## fix permissions
+chown -R 100000:100000 /home/nemo
+
 ## rpm-rebuilddb.post from mer-kickstarter-configs package
 # Rebuild db using target's rpm
 echo -n "Rebuilding db using target rpm.."
@@ -136,3 +164,4 @@ if [ -n "$IMG_NAME" ]; then
 fi
 
 %end
+
