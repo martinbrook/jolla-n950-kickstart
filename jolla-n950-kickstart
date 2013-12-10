@@ -78,6 +78,8 @@ libsailfishkeyprovider-data-jolla
 #pulseaudio-policy-enforcement
 -usb-moded-settings-sailfish
 
+jolla-developer-mode
+
 
 %end
 
@@ -164,4 +166,3 @@ if [ -n "$IMG_NAME" ]; then
 fi
 
 %end
-
