@@ -20,4 +20,4 @@ Flash to N950
 
 sudo tar --numeric-owner -xjf vgrade-sailfish.tar.bz2 -C /mnt
 
-sudo chown -R 100000:100000 /mnt/home/nemo
+
