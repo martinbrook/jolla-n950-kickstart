@@ -22,7 +22,7 @@ repo --name=nemo-adaptation-n950-n9 --baseurl=http://repo.merproject.org/obs/nem
 repo --name=nemo-adaptation-n9xx-common --baseurl=http://repo.merproject.org/obs/nemo:/devel:/hw:/ti:/omap3:/n9xx-common/latest_armv7hl/ 
 
 
-#1.0.0.5
+#1.0.1.10
 repo --name=jolla --baseurl=http://releases.jolla.com/releases/1.0.1.10/jolla/armv7hl/ 
 repo --name=hotfixes --baseurl=http://releases.jolla.com/releases/1.0.1.10/hotfixes/armv7hl/
 repo --name=apps --baseurl=http://releases.jolla.com/jolla-apps/latest-release/armv7hl/
@@ -36,6 +36,7 @@ repo --name=limited-nemo-mw --baseurl=http://repo.merproject.org/obs/home:/vgrad
 #@jolla-configuration-n9
 @jolla-ui-wayland
 @jolla-sailfish-applications
+@jolla-store-applications
 #@jolla-hw-adaptation-n9
         #===========================================================
         #@nokia-n950-support-wayland
@@ -72,6 +73,7 @@ qt5-qtwayland-wayland_egl
 
 -jolla-xt9
 -jolla-xt9-cp
+-sailfish-maps
 jolla-common-configurations
 libsailfishkeyprovider-data-jolla
 
@@ -79,6 +81,16 @@ libsailfishkeyprovider-data-jolla
 -usb-moded-settings-sailfish
 
 jolla-developer-mode
+
+#=== MULTIMEDIA =================================
+gst-av
+#alsa-utils
+#================================================
+
+#===== tools ===========================
+nano
+zypper
+#==== END tools ==============================
 
 
 %end
