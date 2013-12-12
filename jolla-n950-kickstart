@@ -10,7 +10,7 @@ part / --size 3500 --ondisk sda --fstype=ext3
 
 rootpw nemo
 
-user --name nemo --groups audio,video --password nemo
+user --name nemo --groups audio,video,privileged --password nemo
 
 #repo --name=mer-core --baseurl=http://releases.merproject.org/releases/latest/builds/armv7hl/packages  --debuginfo
 #repo --name=nemo-ux --baseurl=http://repo.merproject.org/obs/nemo:/devel:/ux/latest_armv7hl/ 
@@ -27,6 +27,7 @@ repo --name=jolla --baseurl=http://releases.jolla.com/releases/1.0.1.10/jolla/ar
 repo --name=hotfixes --baseurl=http://releases.jolla.com/releases/1.0.1.10/hotfixes/armv7hl/
 repo --name=apps --baseurl=http://releases.jolla.com/jolla-apps/latest-release/armv7hl/
 repo --name=limited-nemo-mw --baseurl=http://repo.merproject.org/obs/home:/vgrade:/branches:/nemo:/devel:/mw/latest_armv7hl/
+repo --name=mw-limited --baseurl=http://n9.araya.su/repos/nemo-mw_limited_ohm/
 
 %packages
 
@@ -62,7 +63,7 @@ repo --name=limited-nemo-mw --baseurl=http://repo.merproject.org/obs/home:/vgrad
         ti-wl1273-fm-radio-firmware
         udev-rules-n950
         wl1271-cal-bin
-        -policy-settings-basic-n950
+        policy-settings-basic-n950
 
         usb-moded-config-n950-n9
         #===========================================================
@@ -74,6 +75,7 @@ qt5-qtwayland-wayland_egl
 -jolla-xt9
 -jolla-xt9-cp
 -sailfish-maps
+-ohm-config
 jolla-common-configurations
 libsailfishkeyprovider-data-jolla
 
@@ -143,6 +145,11 @@ ln -s /etc/systemd/system/proximity-fix.service /etc/systemd/system/multi-user.t
 
 ## fix permissions
 chown -R 100000:100000 /home/nemo
+
+# developer mode password workaround 
+sed -i 's/system/privileged/' /etc/dbus-1/system.d/org.nemo.passwordmanager.conf
+
+
 
 ## rpm-rebuilddb.post from mer-kickstarter-configs package
 # Rebuild db using target's rpm
