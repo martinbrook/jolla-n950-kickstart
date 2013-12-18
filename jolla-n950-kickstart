@@ -72,8 +72,8 @@ nemo-configs-n950-n9-wayland
 qt5-qtwayland-wayland_egl
 #=================================================
 
--jolla-xt9
--jolla-xt9-cp
+jolla-xt9
+jolla-xt9-cp
 -sailfish-maps
 -ohm-config
 jolla-common-configurations
