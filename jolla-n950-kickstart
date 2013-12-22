@@ -32,19 +32,129 @@ repo --name=bme-patched-service-unit --baseurl=http://repo.merproject.org/obs/ho
 
 %packages
 
-@jolla-mw
-@jolla-core
+#@jolla-mw
+qt5-qtmultimedia-plugin-resourcepolicy-resourceqt
+alsa-plugins-pulseaudio
+statefs-provider-connman
+droid-sans-fonts
+xdg-utils
+droid-sans-mono-fonts
+droid-serif-fonts
+buteo-mtp-qt5-sync-plugin
+jolla-keyboard
+bluez-configs-sailfish
+ohm
+statefs-provider-keyboard-generic
+jolla-firstsession
+statefs-provider-mce
+qt5-plugin-bearer-connman
+statefs-provider-ofono
+statefs-provider-profile
+qt5-qtsensors-plugin-sensorfw
+connman-configs-sailfish
+-statefs-provider-upower
+buteo-sync-plugins-qt5
+mapplauncherd-privileges-jolla
+jolla-preload-pictures
+statefs-provider-bluez
+
+
+#@jolla-core
+fontpackages-filesystem
+lsb-release
+wireless-tools
+kbd
+wpa_supplicant
+systemd-sysv
+iproute
+setup
+ssu
+ofono
+xdg-user-dirs
+e2fsprogs
+pam
+shadow-utils
+passwd
+shared-mime-info
+mer-release
+prelink
+iputils
+procps
+ssu-vendor-data-jolla
+connman
+readline
+rootfiles
+rpm
+coreutils
+basesystem
+bash
+jolla-ca
+crda
+busybox-symlinks-gzip
+bluez
+boardname
+net-tools
+jolla-common-configurations
+nss
+deltarpm
+usbutils
+file
+time
+util-linux
+filesystem
+
+
+
 #=================================================
 #@jolla-configuration-n9
-@jolla-ui-wayland
-@jolla-sailfish-applications
-@jolla-store-applications
+
+#@jolla-ui-wayland
+jolla-sessions-qt5
+lipstick-jolla-home-qt5
+jolla-actdead-charging
+
+#@jolla-sailfish-applications
+all-translations-pack
+jolla-handwriting
+transferengine-plugins
+jolla-vault
+jolla-settings-bluetooth
+jolla-settings-sync
+jolla-contacts
+jolla-startupwizard
+jolla-settings-accounts
+#jolla-camera
+jolla-settings-accounts-extensions
+jolla-settings-layout
+jolla-settings-networking
+sailfish-browser
+jolla-settings-transferui-qt5
+jolla-gallery
+voicecall-ui-jolla
+jolla-messages
+jolla-vault-units
+-jolla-xt9
+-jolla-xt9-cp
+store-client
+jolla-settings-system
+jolla-hacks
+
+
+#@jolla-store-applications
+jolla-calendar
+#yandex-store
+jolla-mediaplayer
+jolla-clock
+jolla-notes
+jolla-email
+jolla-calculator
+sailfish-office
+
 #@jolla-hw-adaptation-n9
         #===========================================================
         #@nokia-n950-support-wayland
         bme-rm-680-bin
-        #contextkit-plugin-power-bme 
-        #contextkit-plugin-kbslider 
+        statefs-provider-bme
         dsme
         gstreamer0.10-nokia-videosrc
         gst-omapfb
@@ -73,8 +183,6 @@ nemo-configs-n950-n9-wayland
 qt5-qtwayland-wayland_egl
 #=================================================
 
--jolla-xt9
--jolla-xt9-cp
 -sailfish-maps
 -ohm-config
 jolla-common-configurations
@@ -82,8 +190,10 @@ libsailfishkeyprovider-data-jolla
 
 #pulseaudio-policy-enforcement
 -usb-moded-settings-sailfish
-
 jolla-developer-mode
+
+
+
 
 #=== MULTIMEDIA =================================
 gst-av
@@ -94,6 +204,7 @@ gst-av
 nano
 zypper
 #==== END tools ==============================
+
 
 
 %end
