@@ -261,6 +261,35 @@ chown -R 100000:100000 /home/nemo
 # developer mode password workaround 
 sed -i 's/system/privileged/' /etc/dbus-1/system.d/org.nemo.passwordmanager.conf
 
+# Store fix
+cat > /etc/ssu/ssu.ini << EOF
+[General]
+arch=armv7hl
+configVersion=12
+credentials-scope=sales
+credentials-ttl=1800
+credentials-url-store=https://store-repository.jolla.com
+deviceMode=4
+disabled-repos=adaptation1, thirdparty, adaptation0
+domain=sales
+enabled-repos=aliendalvik
+flavour=release
+home-url=https://dav.jollamobile.com/dav/home/%1/
+initialized=true
+registered=false
+release=1.0.1.10
+rndRelease=latest
+
+[repository-urls]
+aliendalvik=https://store-repository.jolla.com/releases/latest/aliendalvik/SbJ
+limited-nemo-mw=http://repo.merproject.org/obs/home:/vgrade:/branches:/nemo:/devel:/mw/latest_armv7hl/
+nemoadaptation0=http://repo.merproject.org/obs/nemo:/devel:/hw:/ti:/omap3:/n9xx-common/latest_armv7hl/
+nemoadaptation1=http://repo.merproject.org/obs/nemo:/devel:/hw:/ti:/omap3:/n950-n9/latest_armv7hl/
+store=https://store-repository.jolla.com/SbJ/armv7hl/
+EOF
+
+# Hotfix from 1.0.1.12
+# Incorporate this https://github.com/nemomobile/ssu/commit/205984f73a81d16f542ff7f12e7833f926044f50#diff-c331ee789e76da391cbe1f3663d5b52a
 
 
 ## rpm-rebuilddb.post from mer-kickstarter-configs package
