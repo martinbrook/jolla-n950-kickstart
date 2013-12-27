@@ -20,4 +20,7 @@ Flash to N950
 
 sudo tar --numeric-owner -xjf vgrade-sailfish.tar.bz2 -C /mnt
 
+Pre built images at http://images.formeego.org/n950/sailfish/
+
+vgrade
 
