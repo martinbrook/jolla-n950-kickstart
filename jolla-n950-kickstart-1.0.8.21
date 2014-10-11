@@ -299,7 +299,9 @@ sed -i 's/ExecStart=.*/ExecStart=\/usr\/sbin\/fbset-N9/' /lib/systemd/system/fbs
 # It's not set by default but needs to be set on N9
 cat > /usr/sbin/screen_rotation_angle-N9 << EOF
 #!/bin/sh
-dconf write /desktop/jolla/components/screen_rotation_angle 0
+dconf write /desktop/jolla/components/screen_rotation_angle 0 
+dconf write /apps/jolla-startupwizard/reached_tutorial true
+
 EOF
 chmod +x /usr/sbin/screen_rotation_angle-N9
 chown 100000:100000 /usr/sbin/screen_rotation_angle-N9
